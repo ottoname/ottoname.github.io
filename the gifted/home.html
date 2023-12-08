@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>ISMA</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="justify-content-center" id="button">
+    <div class=" d-md-flex justify-content-md-end" >
+        <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" style="background-color: rgb(243, 243, 243);"><img src="icon/setting.png" style="width: 20px;"jus></button>
+        </div>
+    <h1 >I.S.M.A</h1>
+    <input type="file" id="image-input" accept="image/*">
+
+    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <div id="image-preview" ></div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Setting</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div>
+          <div  id="navbarNav">
+              <ul class="navbar-nav">
+                <li>
+                  <a class="nav-link" href="ai.html">Ai</a>
+                </li>
+                <li>
+                  <label>Checkbox 1</label>
+                  <input type="checkbox" class="checkbox">
+              </li>
+              <li>
+                  <label>Checkbox 2</label>
+                  <input type="checkbox" class="checkbox">
+              </li>
+              <li>
+                  <label for="checkbox3">Checkbox 3</label>
+                  <input type="checkbox" id="checkbox3" name="checkboxes" class="checkbox">
+              </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+</div>
+
+
+
+
+    
+
+
+
+
+    <script>
+        document.getElementById('image-input').addEventListener('change', function (event) {
+            const input = event.target;
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const imagePreview = document.getElementById('image-preview');
+                    imagePreview.innerHTML = `<img src="${e.target.result}" alt="Selected Image">`;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+    </script>
+</body>
+
+</html>
